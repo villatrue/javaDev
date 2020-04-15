@@ -1,4 +1,4 @@
-package com.smoothstack.training.commandline;
+package com.smoothstack.training.daytwo;
 
 
 import java.util.Scanner;
