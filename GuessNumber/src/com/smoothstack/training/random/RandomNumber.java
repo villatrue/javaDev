@@ -8,28 +8,29 @@ public class RandomNumber {
 		Random rand = new Random();
 		int numberToGuess = rand.nextInt(100);
 		int numberOfTries = 5;
-		Scanner input = new Scanner(System.in);
-		int guess;
-		boolean win = false;
-		
-		while (win == false) {
-			System.out.println("Guess a number (may be between 1-100)");
-			guess = input.nextInt();
-			numberOfTries--;
+		try (Scanner input = new Scanner(System.in)) {
+			int guess;
+			boolean win = false;
 			
-			
-			
-			if ( numberToGuess-10 < guess && guess < numberToGuess+10 ) {
-				System.out.println("your guess is "+guess+" the random number is "+numberToGuess);
-				win = true;
-			}
-			else if (guess != numberToGuess && numberOfTries>0) {
-				System.out.println(guess+" is incorrect you have "+numberOfTries+" tries left.");
+			while (win == false) {
+				System.out.println("Guess a number (may be between 1-100)");
+				guess = input.nextInt();
+				numberOfTries--;
 				
-			}
-			else if (guess != numberToGuess && numberOfTries == 0) {
-				System.out.println(guess+" is incorrect you have "+numberOfTries+" tries left. The Number is "+numberToGuess+" Game Over");
 				
+				
+				if ( numberToGuess-10 < guess && guess < numberToGuess+10 ) {
+					System.out.println("your guess is "+guess+" the random number is "+numberToGuess);
+					win = true;
+				}
+				else if (guess != numberToGuess && numberOfTries>0) {
+					System.out.println(guess+" is incorrect you have "+numberOfTries+" tries left.");
+					
+				}
+				else if (guess != numberToGuess && numberOfTries == 0) {
+					System.out.println(guess+" is incorrect you have "+numberOfTries+" tries left. The Number is "+numberToGuess+" Game Over");
+					
+				}
 			}
 		}
 		
